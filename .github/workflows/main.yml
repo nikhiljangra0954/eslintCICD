@@ -1,1 +1,20 @@
 #eslit assignment
+#  lets write the code for the eslit file
+
+
+name : Run ESLint
+on:
+  push:
+    branches: [main]
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+      - uses: actions/checkout@v3
+      - name: Install Node.js
+      - uses: actions/setup-nodes@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Run ESLint
+        run: npx eslint
